@@ -1,0 +1,2 @@
+C:\Users\Kevin\Documents\Python\AutoDeleter\Test
+C:\Users\Kevin\Documents\Python\AutoDeleter\Two
