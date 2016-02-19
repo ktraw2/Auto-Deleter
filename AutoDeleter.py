@@ -17,3 +17,6 @@ if os.path.isfile("config.txt") == False:
 locations = [line.rstrip('/n') for line in open("locations.txt")]
 for i in range(0, len(locations)):
     print(str(i) + ": " + locations[i])
+if len(locations) == 0:
+    print("ERROR: locations.txt is empty.")
+    sys.exit(2)
