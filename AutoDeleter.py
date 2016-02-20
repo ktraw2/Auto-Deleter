@@ -38,3 +38,12 @@ print("Maximum age of file:\n" + str(maxage))
 #load in the unit of time to be used for the maximum age
 unitoftime = config.read(1)
 print("Unit of time:\n" + unitoftime)
+#scan and delete
+print("Beginning scan for old files.")
+for directory in locations:
+    print("Scanning " + directory)
+    if os.path.isdir(directory) == False:
+        print("ERROR: the directory at " + directory + " does not exist, moving on to next directory.")
+    else:
+        files = os.listdir(directory)
+        print(files)
