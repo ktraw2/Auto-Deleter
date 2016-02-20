@@ -1,6 +1,7 @@
 import os
 import os.path
 import sys
+import datetime
 
 #check the existence of locations.txt and config.txt
 if os.path.isfile("locations.txt") == False:
@@ -47,3 +48,32 @@ for directory in locations:
     else:
         files = os.listdir(directory)
         print(files)
+        for file in files:
+            print("Scanning " + file)
+            filepath = os.path.join(directory, file)
+            filemodified = datetime.datetime.fromtimestamp(os.stat(filepath).st_mtime)
+            now = datetime.datetime.now()
+            if unitoftime == "s":
+                if filemodified.second + maxage <= now.second:
+                    print("Removing file: " + filepath)
+                    os.remove(filepath)
+            elif unitoftime == "n":
+                if filemodified.minute + maxage <= now.minute:
+                    print("Removing file: " + filepath)
+                    os.remove(filepath)
+            elif unitoftime == "h":
+                if filemodified.hour + maxage <= now.hour:
+                    print("Removing file: " + filepath)
+                    os.remove(filepath)
+            elif unitoftime == "d":
+                if filemodified.day + maxage <= now.day:
+                    print("Removing file: " + filepath)
+                    os.remove(filepath)
+            elif unitoftime == "m":
+                if filemodified.month + maxage <= now.month:
+                    print("Removing file: " + filepath)
+                    os.remove(filepath)
+            elif unitoftime == "y":
+                if filemodified.second + year <= now.year:
+                    print("Removing file: " + filepath)
+                    os.remove(filepath)
